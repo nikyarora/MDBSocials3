@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let console = ConsoleDestination()
         console.format = "$DHH:mm:ss$d $N.$F:$l $C$c$L: $M"
         log.addDestination(console)
-        log.info("Logging has started.")
+        log.info("Started Logging.")
 
         return true
     }

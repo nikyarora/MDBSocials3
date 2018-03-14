@@ -42,6 +42,7 @@ class FirebaseDatabaseHelper {
                 fulfill(true)
             }
         }
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newPost"), object: nil, userInfo: newPost)
     }
     
     
