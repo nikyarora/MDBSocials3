@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class FeedViewController: UIViewController {
 
@@ -61,7 +62,7 @@ class FeedViewController: UIViewController {
         }
         else if !postsLoaded{
             posts.removeAll()
-            FirebaseDatabaseHelper.fetchPosts(withBlock: { posts in
+            /**FirebaseDatabaseHelper.fetchPosts(withBlock: { posts in
                 for p in posts{
                     if !(p.getDateFromString().timeIntervalSinceNow < 0) {
                         self.posts.insert(p, at: 0)
@@ -70,8 +71,12 @@ class FeedViewController: UIViewController {
                 self.posts = self.posts.sorted(by: { $0.getDateFromString().compare($1.getDateFromString()) == .orderedAscending })
                 
                 self.feedTableView.reloadData()
-            })
-            
+            })**/
+            firstly {
+                return AlamofireHelper.getPosts()
+                }.then{ posts in
+                    self.sortPostsInTable(posts: posts)
+            }
             postsLoaded = true
         }
         else{
@@ -85,6 +90,17 @@ class FeedViewController: UIViewController {
                 myEventsViewController.posts.append(p)
             }
         }
+    }
+    
+    func sortPostsInTable(posts: [Post]){
+        for p in posts{
+            if !(p.getDateFromString().timeIntervalSinceNow < 0) {
+                self.posts.insert(p, at: 0)
+            }
+        }
+        self.posts = self.posts.sorted(by: { $0.getDateFromString().compare($1.getDateFromString()) == .orderedAscending })
+        
+        self.feedTableView.reloadData()
     }
     
     @objc func logOut(){

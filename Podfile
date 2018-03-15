@@ -17,16 +17,19 @@ target 'MDBSocials' do
     # Pods for testing
   end
 
-pod 'Firebase/Core'
+  pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'MKSpinner'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'ChameleonFramework'
   pod 'PromiseKit'
   pod 'ObjectMapper'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
-  pod 'LyftSDK/API'
   pod 'LocationPicker'
-pod 'SwiftyBeaver'
+  pod ‘SwiftyBeaver’
+
 end

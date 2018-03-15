@@ -83,7 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RCC-fO-ZoA"/>
                     <connections>
-                        <segue destination="RaS-ND-CcV" kind="show" identifier="return" id="sb6-Qv-wEu"/>
+                        <segue destination="pIe-5A-OUF" kind="show" identifier="returnToFeedFromNew" id="1u9-AQ-gYn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOL-Se-5dC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,9 +221,8 @@
         <image name="myEventsIcon" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xvc-kf-NKL"/>
-        <segue reference="qCY-mO-6OT"/>
+        <segue reference="1u9-AQ-gYn"/>
         <segue reference="Q7M-ls-qvR"/>
-        <segue reference="gUt-e1-EBL"/>
+        <segue reference="4PD-CD-CNC"/>
     </inferredMetricsTieBreakers>
 </document>

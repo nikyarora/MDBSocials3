@@ -35,7 +35,7 @@ class FirebaseAuthHelper {
                 })
             }
             else {
-                print(error.debugDescription)
+                log.error(error.debugDescription)
             }
         })
         
@@ -48,7 +48,7 @@ class FirebaseAuthHelper {
                 try auth.signOut()
                 fulfill(true)
             } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
+                log.error("Error signing out: \(signOutError.debugDescription)")
                 showAlert(title: "Error Logging Out", message: signOutError.debugDescription, currentView: view)
             }
         }
@@ -56,11 +56,11 @@ class FirebaseAuthHelper {
     
     static func isLoggedIn() -> Bool {
         if Auth.auth().currentUser != nil{
-            print("Logged in")
+           log.info("logged in")
             return true
         }
         else {
-            print("Not Logged In")
+            log.info("not logged in")
             return false
         }
     }

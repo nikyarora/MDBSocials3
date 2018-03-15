@@ -146,10 +146,7 @@ class SignupViewController: UIViewController {
         if fullNameField.hasText && usernameField.hasText && emailField.hasText && passwordField.hasText && selectedImage != nil{
             print("Creating account")
             FirebaseAuthHelper.signUp(name: fullNameField.text!, username: usernameField.text!, email: emailField.text!, password: passwordField.text!, image: selectedImage, withBlock: { (user) in
-                self.dismiss(animated: true, completion: {
-                    print("Finished creating user!")
-                    self.performSegue(withIdentifier: "toFeedFromSignup", sender: self)
-                })
+                self.performSegue(withIdentifier: "toFeedFromSignup", sender: self)
             })
         }
         else{

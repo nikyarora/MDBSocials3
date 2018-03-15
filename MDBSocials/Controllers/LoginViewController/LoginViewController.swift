@@ -33,13 +33,34 @@ class LoginViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             performSegue(withIdentifier: "toFeedFromLogin", sender: self)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        emailText.resignFirstResponder()
+        passwordText.resignFirstResponder()
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height/2
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height/2
+            }
+        }
+    }
     func setupLogo(){
         appTitle = UIImageView(frame: CGRect(x: view.frame.width * 0.1, y: view.frame.height * 0.15, width: view.frame.width * 0.8, height: view.frame.height * 0.2))
         appTitle.clipsToBounds = true
@@ -93,11 +114,6 @@ class LoginViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(tappedSignUp), for: .touchUpInside)
         signUpButton.setTitleColor(.MDBBlue, for: .normal)
         self.view.addSubview(signUpButton)
-    }
-    
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        emailText.resignFirstResponder()
-        passwordText.resignFirstResponder()
     }
     
     @objc func tappedLogin(){

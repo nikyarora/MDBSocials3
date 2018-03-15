@@ -25,10 +25,6 @@ class DetailView: UIView {
     var viewInterestedButton: UIButton!
     var interestedLabel: UILabel!
     
-    var lyftInformationView: UIView!
-    var lyftLogoImage: UIImageView!
-    var lyftLabelText: UILabel!
-    
     var viewController: DetailViewController!
     
     init(frame: CGRect, controller: DetailViewController){
@@ -37,7 +33,6 @@ class DetailView: UIView {
         setupHost()
         setupMap()
         setupInterested()
-        setupLyft()
         mainImageView.image = viewController.post.image ?? UIImage(named: "defaultImage")
         setInterestedButtonState()
         populateLabelInfo()
@@ -60,14 +55,14 @@ class DetailView: UIView {
         mainImageView.layer.masksToBounds = true
         imageBlock.addSubview(mainImageView)
         
-        mapView = MKMapView(frame: CGRect(x: 10, y: 650, width: 100, height: 100))
+        mapView = MKMapView(frame: CGRect(x: 15, y: 575, width: 100, height: 100))
         mapView.mapType = .standard
         mapView.layer.cornerRadius = 10
         mapView.layer.masksToBounds = true
         self.addSubview(mapView)
         
         
-        getDirectionsButton = UIButton(frame: CGRect(x: 150, y: 675, width: 200, height: 50))
+        getDirectionsButton = UIButton(frame: CGRect(x: 150, y: 600, width: 200, height: 50))
         getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
         getDirectionsButton.layer.cornerRadius = 10
         getDirectionsButton.setTitle("Directions", for: .normal)
@@ -123,34 +118,7 @@ class DetailView: UIView {
         viewInterestedButton.titleLabel?.adjustsFontSizeToFitWidth = true
         interestedInformationView.addSubview(viewInterestedButton)
     }
-    
-    func setupLyft(){
-        let yPos = CGFloat(545)
-        lyftInformationView = UIView(frame: CGRect(x: 15, y: yPos, width: self.frame.width - 30, height: 80))
-        lyftInformationView.backgroundColor = .MDBYellow
-        lyftInformationView.layer.cornerRadius = 10
-        self.addSubview(lyftInformationView)
-        
-        lyftLogoImage = UIImageView(frame: CGRect(x: 10, y: 10, width: lyftInformationView.frame.height - 20, height: lyftInformationView.frame.height - 20))
-        lyftLogoImage.image = #imageLiteral(resourceName: "lyftLogo")
-        lyftInformationView.addSubview(lyftLogoImage)
-        
-        lyftLabelText = UILabel(frame: CGRect(x: 80, y: 10, width: lyftInformationView.frame.width - 80, height: lyftInformationView.frame.height - 20))
-        lyftLabelText.textColor = .white
-        lyftLabelText.numberOfLines = 2
-        lyftInformationView.addSubview(lyftLabelText)
-    }
-    
-    func queryLyft(){
-        let eventLocation = CLLocationCoordinate2DMake(viewController.post.latitude!, viewController.post.longitude!)
-        if viewController.currentLocation != nil {
-            LyftAPIHelper.getRideEstimate(pickup: viewController.currentLocation!, dropoff: eventLocation) { costEstimate in
-                self.lyftLabelText.text = "A Lyft ride currently costs $" + String(describing: costEstimate.estimate!.maxEstimate.amount) + " from your current location."
-            }
-        } else {
-            print("Unable to find current location.")
-        }
-    }
+
     
     func populateLabelInfo(){
         descriptionLabel.text = viewController.post.description

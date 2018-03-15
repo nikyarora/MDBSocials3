@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SkyFloatingLabelTextField
 
 class NewSocialViewController: UIViewController {
     

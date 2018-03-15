@@ -73,6 +73,7 @@ class FirebaseDatabaseHelper {
             let newUser = ["name": name, "username": username, "email": email, "profilePictureURL": downloadURL, "userID": userID] as [String : Any]
             let childUpdates = ["/\(userID)/": newUser]
             usersRef.updateChildValues(childUpdates)
+            print("made user")
             successBlock()
         }
     }

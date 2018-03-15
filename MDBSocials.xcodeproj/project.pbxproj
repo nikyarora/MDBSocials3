@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01C7362C205A3D90008600D8 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C7362B205A3D90008600D8 /* AlamofireHelper.swift */; };
 		01D02414204BBC4A0043B483 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D02413204BBC4A0043B483 /* GoogleService-Info.plist */; };
 		01D8EA892057CE3D00D05536 /* NewSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8EA882057CE3D00D05536 /* NewSocialView.swift */; };
 		68EDE3B95511B67553ECB9E4 /* Pods_MDBSocialsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082485A8970F848EB6160699 /* Pods_MDBSocialsUITests.framework */; };
@@ -30,7 +31,6 @@
 		6CDEA3BD203D31D4002BA2DC /* FirebaseDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEA3BC203D31D4002BA2DC /* FirebaseDatabaseHelper.swift */; };
 		6CDEA3BF203D4F5D002BA2DC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEA3BE203D4F5D002BA2DC /* Post.swift */; };
 		6CDEA3C1203E4179002BA2DC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEA3C0203E4178002BA2DC /* UserModel.swift */; };
-		6CE8383F2049D0DA0001EC9A /* LyftAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE8383E2049D0DA0001EC9A /* LyftAPIHelper.swift */; };
 		B7EB620FDA380A8F47940E8E /* Pods_MDBSocialsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9549B84E4CDC9FA6005D75 /* Pods_MDBSocialsTests.framework */; };
 		F575FE17DBA947DD5C1718D1 /* Pods_MDBSocials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296F0B948C7E09A3B17A364B /* Pods_MDBSocials.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01C7362B205A3D90008600D8 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		01D02413204BBC4A0043B483 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01D8EA882057CE3D00D05536 /* NewSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialView.swift; sourceTree = "<group>"; };
 		082485A8970F848EB6160699 /* Pods_MDBSocialsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDBSocialsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +86,6 @@
 		6CDEA3BC203D31D4002BA2DC /* FirebaseDatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseHelper.swift; sourceTree = "<group>"; };
 		6CDEA3BE203D4F5D002BA2DC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6CDEA3C0203E4178002BA2DC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		6CE8383E2049D0DA0001EC9A /* LyftAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyftAPIHelper.swift; sourceTree = "<group>"; };
 		6E6AA599B76D07FAFEC5D29E /* Pods-MDBSocialsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialsTests/Pods-MDBSocialsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E9549B84E4CDC9FA6005D75 /* Pods_MDBSocialsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDBSocialsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C6F99819AD820533C5470F /* Pods-MDBSocialsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialsTests/Pods-MDBSocialsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -290,8 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				6CDEA3B7203BF949002BA2DC /* FirebaseAuthHelper.swift */,
+				01C7362B205A3D90008600D8 /* AlamofireHelper.swift */,
 				6CDEA3BC203D31D4002BA2DC /* FirebaseDatabaseHelper.swift */,
-				6CE8383E2049D0DA0001EC9A /* LyftAPIHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -545,9 +545,10 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HanekeSwift/Haneke.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
-				"${BUILT_PRODUCTS_DIR}/LyftSDK/LyftSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/MKSpinner/MKSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -561,9 +562,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haneke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LyftSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -649,11 +651,11 @@
 				6C5AB002204B61BD001CFBD3 /* DetailView.swift in Sources */,
 				6CDEA3BB203C0E38002BA2DC /* FeedTableViewCell.swift in Sources */,
 				6CDEA37A203BF48F002BA2DC /* LoginViewController.swift in Sources */,
-				6CE8383F2049D0DA0001EC9A /* LyftAPIHelper.swift in Sources */,
 				6C4AB5E4204A701900F38DE1 /* Constants.swift in Sources */,
 				6CDEA3B6203BF6FD002BA2DC /* NewSocialViewController.swift in Sources */,
 				6C6E729E204A1D2E00244C59 /* InterestedUsersViewController.swift in Sources */,
 				6CDEA3B4203BF6F4002BA2DC /* DetailViewController.swift in Sources */,
+				01C7362C205A3D90008600D8 /* AlamofireHelper.swift in Sources */,
 				6CDEA3B2203BF6EE002BA2DC /* FeedViewController.swift in Sources */,
 				01D8EA892057CE3D00D05536 /* NewSocialView.swift in Sources */,
 				6CDEA3BD203D31D4002BA2DC /* FirebaseDatabaseHelper.swift in Sources */,

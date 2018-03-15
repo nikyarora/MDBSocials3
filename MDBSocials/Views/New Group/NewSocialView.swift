@@ -125,7 +125,7 @@ class NewSocialView: UIView {
         if eventNameField.hasText && eventDescriptionField.hasText && selectedImage != nil && selectedLocation != nil {
             FirebaseDatabaseHelper.newPostWithImage(selectedImage: selectedImage, name: eventNameField.text!, description: eventDescriptionField.text!, date: datePicker.date, location: selectedLocation).then { success -> Void in
                 self.viewController.dismiss(animated: true, completion: {
-                    print("Post Complete")
+                    log.info("post complete")
                 })
             }
         }

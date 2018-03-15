@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class InterestedUsersViewController: UIViewController {
     
@@ -37,8 +38,8 @@ class InterestedUsersViewController: UIViewController {
     func getUsers(){
         if userIDs != nil {
             for u in userIDs!{
-                print("Getting User")
-                FirebaseDatabaseHelper.getUserWithId(id: u).then {user in
+                log.info("Getting User")
+                AlamofireHelper.getUserWithId(id: u).then {user in
                     self.users.append(user)
                     }.then {
                         self.tableView.reloadData()
